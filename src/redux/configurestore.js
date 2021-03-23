@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware} from 'redux';
+import  thunk from 'redux-thunk';
 import { Campsites } from './campsites';
 import { Comments } from './comments';
 import { Partners } from './partners';
