@@ -1,0 +1,1 @@
+export const ADD_COMMENT ='ADD_COMMENT';  //creating a variable "ADD-COMMENT" setting it's value to the sting "ADD_COMMENT" and exporting it

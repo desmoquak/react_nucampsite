@@ -116,30 +116,29 @@ class Header extends Component {
               <FormGroup>
                 <Label htmlFor="username">Username</Label>
 
-                  <Input
-                    type="text"
-                    id="username"
-                    name="username"
-                    innerRef={(input) => (this.username = input)}
-                  />
+                <Input
+                  type="text"
+                  id="username"
+                  name="username"
+                  innerRef={(input) => (this.username = input)}
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="password">Password</Label>
-                  
-                  <Input
-                    type="password"
-                    id="Password"
-                    name="password"
-                    innerRef={(input) => (this.password = input)}
-                  />
+
+                <Input
+                  type="password"
+                  id="Password"
+                  name="password"
+                  innerRef={(input) => (this.password = input)}
+                />
               </FormGroup>
               <FormGroup>
-                  
-                  <Input
-                    type="checkbox"
-                    name="remember"
-                    innerRef={(input) => (this.remember = input)}
-                  />
+                <Input
+                  type="checkbox"
+                  name="remember"
+                  innerRef={(input) => (this.remember = input)}
+                />
                 Remember me
               </FormGroup>
               <Button type="submit" value="submit" color="primary">
