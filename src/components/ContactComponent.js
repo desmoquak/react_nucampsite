@@ -8,7 +8,7 @@ import {
   Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -41,10 +41,8 @@ class Contact extends Component {
   }
 
   handleSubmit(values) {
-    console.log('Current State is: ' + JSON.stringify(values));
-    alert('Current State is: ' + JSON.stringify(values));
-    this.props.resetFeedbackForm();
-}
+    this.props.postFeedback(values);
+  }
 
   render() {
     return (
@@ -87,20 +85,24 @@ class Contact extends Component {
             </a>
           </div>
         </div>
+
         <div className="row row-content">
           <div className="col-12">
             <h2>Send us your Feedback</h2>
             <hr />
           </div>
           <div className="col-md-10">
-          <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>       
+            <Form
+              model="feedbackForm"
+              onSubmit={(values) => this.handleSubmit(values)}
+            >
               <Row className="form-group">
                 <Label htmlFor="firstName" md={2}>
                   First Name
                 </Label>
                 <Col md={10}>
                   <Control.text
-                    model=".firstname"
+                    model=".firstName"
                     id="firstName"
                     name="firstName"
                     placeholder="First Name"
@@ -132,7 +134,7 @@ class Contact extends Component {
                   <Control.text
                     model=".lastName"
                     id="lastName"
-                    name="lasttName"
+                    name="lastName"
                     placeholder="Last Name"
                     className="form-control"
                     validators={{
@@ -143,7 +145,7 @@ class Contact extends Component {
                   />
                   <Errors
                     className="text-danger"
-                    model=".firstName"
+                    model=".lastName"
                     show="touched"
                     component="div"
                     messages={{
@@ -209,7 +211,7 @@ class Contact extends Component {
                     component="div"
                     messages={{
                       required: 'Required',
-                      validEmail: 'Must be a valid email',
+                      validEmail: 'Invalid email address',
                     }}
                   />
                 </Col>
@@ -248,7 +250,7 @@ class Contact extends Component {
                     id="feedback"
                     name="feedback"
                     rows="12"
-                    classname="form-control"
+                    className="form-control"
                   />
                 </Col>
               </Row>
